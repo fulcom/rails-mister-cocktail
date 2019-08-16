@@ -1,7 +1,11 @@
 <h1><%= @cocktail.name %></h1>
 
+<%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
+
 <% @cocktail.doses.each do |dose|%>
 <li><%= dose.ingredient.name  %> - <%= dose.description %>  <button type="button" class="btn btn-outline-danger"><%= link_to("Destroy",dose_path(dose), method: :delete, data: { confirm: "Are you sure?"} ) %></button> </li>
+
+
 <% end %>
 <br>
 <button type="button" class="btn btn-outline-primary"><%= link_to "Back to cocktails", cocktails_path %></button>
