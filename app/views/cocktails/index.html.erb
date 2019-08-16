@@ -1,11 +1,23 @@
-<h1 class="p-3 m-3">List of all cocktails</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dzqm0mole/image/upload/v1565965078/alexandre-godreau-oXOIH4UAixo-unsplash_gb6g4n.jpg);">
+  <div class="container">
+    <h1 class=" p-3 m-3">List of all cocktails</h1>
+    <button type="button" class="btn btn-ghost"><%= link_to("Create a new cocktail", new_cocktail_path)%></button>
+  </div>
+</div>
 
-<ul>
+<!--  -->
 <% @cocktails.each do |cocktail| %>
-  <li><%= link_to cocktail.name, cocktail_path(cocktail) %> <%= cl_image_tag "#{cocktail.photo}", height: 100, width: 100, crop: :fill %>
-</li>
+<div class="card mt-3 mb-3">
+ <%= cl_image_tag "#{cocktail.photo}", height: 100, width: 100, crop: :fill %>
+  <div class="card-infos">
+    <div>
+      <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+      <!-- <p>Short description here!</p> -->
+    </div>
+  </div>
+</div>
 <% end %>
-</ul>
 
-<button type="button" class="btn btn-outline-primary"><%= link_to("Create a new cocktail", new_cocktail_path)%></button>
+
+
 
